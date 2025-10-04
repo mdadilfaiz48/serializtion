@@ -1,17 +1,18 @@
+package GmailUser;
+
 import java.io.*;
 
-public class AccountCust {
+public class User {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
-        Account1 a1 = new Account1();
+        Gmail g1 = new Gmail();
+        System.out.println(g1.userName+"...................."+g1.password);
         FileOutputStream fos = new FileOutputStream("abc.ser");
         ObjectOutputStream oos = new ObjectOutputStream(fos);
-        oos.writeObject(a1);
-
+        oos.writeObject(g1);
 
         FileInputStream fis = new FileInputStream("abc.ser");
         ObjectInputStream ois = new ObjectInputStream(fis);
-        Account1 a2 = (Account1)ois.readObject();
-        System.out.println(a2.name+"....................."+a2.password+"................"+a2.pinNo);
-
+        Gmail g2 = (Gmail)ois.readObject();
+        System.out.println(g2.userName+"..................."+g2.password);
     }
 }
